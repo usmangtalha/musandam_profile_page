@@ -3,35 +3,44 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   final String? hintText;
   final IconData? icon;
-  final IconData? icon_visibility;
   final bool obscureText;
-  final dynamic controller;
+  final TextEditingController controller;
+  final VoidCallback? toggleVisibility;
+  final bool isPasswordField;
+  final String? Function(String?)? validator;
 
   const CustomTextField({
     Key? key,
     required this.hintText,
     required this.icon,
-    required this.icon_visibility,
     required this.obscureText,
     required this.controller,
+    this.toggleVisibility,
+    this.isPasswordField = false,
+    this.validator,
 }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         obscureText: obscureText,
+        validator: validator,
         decoration: InputDecoration(
           prefixIcon: Icon(
             icon,
             color: Colors.lightBlue,
           ),
-          suffixIcon: Icon(
-            icon_visibility,
-            color: Colors.lightBlue,
-          ),
+          suffixIcon: isPasswordField ? IconButton(
+            icon: Icon(
+              obscureText ? Icons.visibility_off : Icons.visibility,
+              color: Colors.lightBlue,
+            ),
+            onPressed: toggleVisibility,
+          )
+          : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30),
