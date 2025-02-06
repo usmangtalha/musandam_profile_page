@@ -20,6 +20,16 @@ class CustomTextField extends StatelessWidget {
     this.validator,
 }) : super(key: key);
 
+  OutlineInputBorder customBorder (Color color, double width) => OutlineInputBorder(
+      borderSide: BorderSide(color: color, width: width),
+      borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(30),
+  bottomRight: Radius.circular(30),
+  topRight: Radius.circular(15),
+  bottomLeft: Radius.circular(15),
+  ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,23 +51,16 @@ class CustomTextField extends StatelessWidget {
             onPressed: toggleVisibility,
           )
           : null,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30),
-              bottomRight: Radius.circular(30),
-              topRight: Radius.circular(15),
-              bottomLeft: Radius.circular(15),
-            ),
-            borderSide: BorderSide(
-              color: Colors.lightBlue,
-              width: 1.5,
-            ),
-          ),
           hintText: hintText!,
           hintStyle: TextStyle(
             color: Colors.lightGreen,
             fontSize: 16,
           ),
+          border: customBorder(Colors.lightBlue, 1.5),
+          enabledBorder: customBorder(Colors.lightBlue, 1.5),
+          focusedBorder: customBorder(Colors.blue, 1.5),
+          errorBorder: customBorder(Colors.red, 1.5),
+          focusedErrorBorder: customBorder(Colors.red, 1.5),
         ),
       ),
     );
