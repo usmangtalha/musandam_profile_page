@@ -18,17 +18,18 @@ class CustomTextField extends StatelessWidget {
     this.toggleVisibility,
     this.isPasswordField = false,
     this.validator,
-}) : super(key: key);
+  }) : super(key: key);
 
-  OutlineInputBorder customBorder (Color color, double width) => OutlineInputBorder(
-      borderSide: BorderSide(color: color, width: width),
-      borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(30),
-  bottomRight: Radius.circular(30),
-  topRight: Radius.circular(15),
-  bottomLeft: Radius.circular(15),
-  ),
-  );
+  OutlineInputBorder customBorder(Color color, double width) =>
+      OutlineInputBorder(
+        borderSide: BorderSide(color: color, width: width),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+          topRight: Radius.circular(15),
+          bottomLeft: Radius.circular(15),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -39,25 +40,15 @@ class CustomTextField extends StatelessWidget {
         obscureText: obscureText,
         validator: validator,
         decoration: InputDecoration(
-          prefixIcon: Icon(
-            icon,
-            color: Colors.lightBlue,
-          ),
+          prefixIcon: Icon(icon, color: Colors.lightBlue),
           suffixIcon: isPasswordField ? IconButton(
-            icon: Icon(
-              obscureText ? Icons.visibility_off : Icons.visibility,
-              color: Colors.lightBlue,
-            ),
-            onPressed: toggleVisibility,
-          )
-          : null,
+                  icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility, color: Colors.lightBlue),
+                  onPressed: toggleVisibility,
+                ) : null,
           hintText: hintText!,
-          hintStyle: TextStyle(
-            color: Colors.lightGreen,
-            fontSize: 16,
-          ),
-          border: customBorder(Colors.lightBlue, 1.5),
-          enabledBorder: customBorder(Colors.lightBlue, 1.5),
+          hintStyle: TextStyle(color: Colors.lightGreen, fontSize: 16),
+          border: customBorder(Colors.lightBlue, 1),
+          enabledBorder: customBorder(Colors.lightBlue, 1),
           focusedBorder: customBorder(Colors.blue, 1.5),
           errorBorder: customBorder(Colors.red, 1.5),
           focusedErrorBorder: customBorder(Colors.red, 1.5),

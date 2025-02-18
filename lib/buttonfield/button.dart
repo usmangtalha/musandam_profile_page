@@ -33,11 +33,7 @@ class CustomButton extends StatelessWidget {
           onPressed: setstate,
           child: Text(
             text!,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
           ),
         ),
       ),

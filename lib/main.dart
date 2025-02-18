@@ -83,23 +83,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         image: AssetImage('images/logo.png'),
                       ),
                       CircleAvatar(
-                        radius: 25,
-                        backgroundImage: AssetImage('images/avatar.png'),
-                      ),
+                          radius: 25,
+                          backgroundImage: AssetImage('images/avatar.png')),
                     ],
                   ),
                 ),
                 CircleAvatar(
-                  radius: 45,
-                  backgroundImage: AssetImage('images/avatar.png'),
-                ),
-                Text(
-                  'Usman Ghani',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.lightBlue),
-                ),
+                    radius: 45,
+                    backgroundImage: AssetImage('images/avatar.png')),
+                Text('Usman Ghani',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.lightBlue)),
                 CustomTextField(
                   hintText: 'Your Full Name',
                   icon: Icons.person,
